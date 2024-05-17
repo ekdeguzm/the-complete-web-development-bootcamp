@@ -20,20 +20,15 @@ function images() {
   document.getElementsByClassName("img1")[0].src = "images/" + selectedImages1;
   document.getElementsByClassName("img2")[0].src = "images/" + selectedImages2;
 
-  // determine the winner
-  let winnerEmoji1 = "";
-  let winnerEmoji2 = "";
-  if (randomNumber1 > randomNumber2) {
-    winnerEmoji1 = "🎉";
+  if (randomNumber1 < randomNumber2) {
+    document.querySelector("h1").innerHTML = "Player 2 Wins! 🏆";
     triggerConfetti();
-  } else if (randomNumber2 > randomNumber1) {
-    winnerEmoji2 = "🎉";
+  } else if (randomNumber1 > randomNumber2) {
+    document.querySelector("h1").innerHTML = "🏆 Player 1 Wins!";
     triggerConfetti();
+  } else {
+    document.querySelector("h1").innerHTML = "Draw!";
   }
-
-  // update the emojis
-  document.getElementById("emoji1").textContent = winnerEmoji1;
-  document.getElementById("emoji2").textContent = winnerEmoji2;
 }
 
 function triggerConfetti() {
