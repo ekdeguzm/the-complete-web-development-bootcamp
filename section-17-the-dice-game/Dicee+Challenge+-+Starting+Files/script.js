@@ -62,3 +62,9 @@ function triggerConfetti() {
 }
 
 window.onload = images;
+
+const rollButton = document.querySelector(".roll-button");
+
+rollButton.addEventListener("click", () => {
+  console.log("Button clicked!");
+});
