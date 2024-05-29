@@ -14,6 +14,10 @@ app.get("/contact", (req, res) => {
   res.send("<h1>Contact Me</h1><p>Phone: +44123456789</p>");
 });
 
+app.get("/tea", (req, res) => {
+  res.send("<h1>My favorite tea is green tea</h1>");
+});
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
