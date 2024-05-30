@@ -2,8 +2,6 @@
 import inquirer from "inquirer";
 import qr from "qr-image";
 import fs from "fs";
-import { writeFile } from "node:fs";
-import { Buffer } from "node:buffer";
 
 inquirer
   .prompt([
@@ -18,7 +16,7 @@ inquirer
     var qr_svg = qr.image(url);
     qr_svg.pipe(fs.createWriteStream("qr_img.png"));
     const data = new Uint8Array(Buffer.from("Hello Node.js"));
-    writeFile("message.txt", url, (err) => {
+    fs.writeFile("URL.txt", url, (err) => {
       if (err) throw err;
       console.log("The file has been saved!");
     });
