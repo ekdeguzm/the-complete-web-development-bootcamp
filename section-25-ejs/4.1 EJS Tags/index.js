@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 
 app.get("/", (req, res) => {
+  console.log(req);
+  console.log("HELLO");
+  console.log(res);
   const data = {
     title: "EJS Tags",
     seconds: new Date().getSeconds(),
