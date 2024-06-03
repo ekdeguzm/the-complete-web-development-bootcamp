@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
+app.use(express.static("public"));
 
 //Step 3 - Make the styling show up.
 //Hint 1: CSS files are static files!
@@ -16,6 +17,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   //Step 1 - Make the get route work and render the index.ejs file.
+  res.render("index.ejs", {
+      year: new Date().getFullYear(),
+  });
+
+  
+  
 });
 
 app.post("/submit", (req, res) => {
