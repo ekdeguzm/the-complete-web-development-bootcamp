@@ -20,8 +20,6 @@ app.get("/", (req, res) => {
   res.render("index.ejs", {
       year: new Date().getFullYear(),
   });
-
-  
   
 });
 
@@ -33,6 +31,25 @@ app.post("/submit", (req, res) => {
   //scroll down to see the two arrays.
   //2. Send the index.ejs as a response and add the adjective and noun to the res.render
   //3. Test to make sure that the random words display in the h1 element in index.ejs
+
+
+  function titleCase(string){
+    return string[0].toUpperCase() + string.slice(1).toLowerCase();
+  }
+
+  const randomAdj = adj[Math.floor(Math.random() * adj.length)];
+  const randomNoun = noun[Math.floor(Math.random() * noun.length)];
+  const randomName = titleCase(randomAdj) + " " + titleCase(randomNoun)
+
+  
+
+  res.render("index.ejs", {
+    bandName: randomName,
+    year: new Date().getFullYear(),
+});
+
+
+
 });
 
 app.listen(port, () => {
